@@ -19,6 +19,21 @@ import {
     // import OtpShowcase, { OtpInput } from "@/components/otp-input"
     import { OtpInput, type OtpVariant } from "@/components/otp-input";
 
+    import {
+  ElasticDropdown,
+  type ElasticDropdownOption,
+  UserIcon,
+  UserFilledIcon,
+  BriefcaseIcon,
+  BriefcaseFilledIcon,
+  PaletteIcon,
+  PaletteFilledIcon,
+  CodeIcon,
+  CodeFilledIcon,
+  FinanceIcon,
+  FinanceFilledIcon,
+} from "@/components/elastic-dropdown"
+
 // const variants: VariantEntry[] = [
 //   { variant: "letters", name: "1. Staggered Letter Lift" },
 //   { variant: "liquid", name: "2. Single Liquid Bubble" },
@@ -55,6 +70,14 @@ const items: JellyToolbarItem[] = [
 
 const variants: OtpVariant[] = ["classic", "underline", "pill", "filled"];
 
+const options: ElasticDropdownOption[] = [
+  { value: "personal", label: "Personal", icon: UserIcon, filledIcon: UserFilledIcon },
+  { value: "work", label: "Work", icon: BriefcaseIcon, filledIcon: BriefcaseFilledIcon },
+  { value: "design", label: "Design", icon: PaletteIcon, filledIcon: PaletteFilledIcon },
+  { value: "development", label: "Development", icon: CodeIcon, filledIcon: CodeFilledIcon },
+  { value: "finance", label: "Finance", icon: FinanceIcon, filledIcon: FinanceFilledIcon },
+];
+
 
 
 
@@ -77,28 +100,54 @@ const boxWidth = "1152px";
 const boxHeight = "780px";
 
 export default function PreviewPage() {
-  return (
-    <main className="flex min-h-screen items-center justify-center overflow-auto">
-      <div
-        className="relative"
-        style={{ width: canvasWidth, height: canvasHeight, maxWidth: "100%" }}
-      >
-        <BackgroundMesh />
+  // return (
+  //   <main className="flex min-h-screen items-center justify-center overflow-auto">
+  //     <div
+  //       className="relative"
+  //       style={{ width: canvasWidth, height: canvasHeight, maxWidth: "100%" }}
+  //     >
+  //       <BackgroundMesh />
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div
-            // className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
-            className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
-            style={{ width: boxWidth, height: boxHeight, maxWidth: "100%" }}
-          >
-            {/* <Buttons variants={variants} /> */}
-            {/* <LiquidScrollProgress sections={sections} />; */}
-            {/* <JellyToolbar items={items} />; */}
-            {/* <Pagination variants={variants} />; */}
-            <OtpInput variants={variants} />;
-          </div>
-        </div>
+  //       <div className="absolute inset-0 flex items-center justify-center">
+  //         <div
+  //           // className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
+  //           className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
+  //           style={{ width: boxWidth, height: boxHeight, maxWidth: "100%" }}
+  //         >
+  //           {/* <Buttons variants={variants} /> */}
+  //           {/* <LiquidScrollProgress sections={sections} />; */}
+  //           {/* <JellyToolbar items={items} />; */}
+  //           {/* <Pagination variants={variants} />; */}
+  //           {/* <OtpInput variants={variants} />; */}
+  //           <ElasticDropdown placeholder="Project" options={options} />
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </main>
+  // );
+
+return (
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        height: "360px",
+        // overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          top: "232px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "min(100%, 260px)",
+          zIndex: 10,
+        }}
+      >
+        <ElasticDropdown placeholder="Project" options={options} />
       </div>
-    </main>
+    </div>
   );
+
 }
