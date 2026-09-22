@@ -14,13 +14,14 @@ import {
       Send,
       Menu as MenuIcon,
     } from "lucide-react";
+    import Pagination, { type PaginationVariant } from "@/components/pagination";
 
-const variants: VariantEntry[] = [
-  { variant: "letters", name: "1. Staggered Letter Lift" },
-  { variant: "liquid", name: "2. Single Liquid Bubble" },
-  { variant: "magnetic", name: "3. Magnetic" },
-  { variant: "compression", name: "4. Cursor Compression" },
-];
+// const variants: VariantEntry[] = [
+//   { variant: "letters", name: "1. Staggered Letter Lift" },
+//   { variant: "liquid", name: "2. Single Liquid Bubble" },
+//   { variant: "magnetic", name: "3. Magnetic" },
+//   { variant: "compression", name: "4. Cursor Compression" },
+// ];
 
 const sections: LiquidScrollProgressSection[] = [
   { title: "Introduction" },
@@ -38,6 +39,7 @@ const items: JellyToolbarItem[] = [
       { label: "Menu", icon: MenuIcon, shortcut: "M" },
     ];
 
+    const variants: PaginationVariant[] = ["pills", "outline", "compact", "input"];
 // // Canvas = the bg box itself
 // const canvasWidth = "1600px";
 // const canvasHeight = "839px";
@@ -47,12 +49,12 @@ const items: JellyToolbarItem[] = [
 // const boxHeight = "600px";
 
 // Canvas = the bg box itself
-const canvasWidth = "1000px";
-const canvasHeight = "739px";
+const canvasWidth = "1300px";
+const canvasHeight = "839px";
 
 // Preview box, independent of canvas size
-const boxWidth = "952px";
-const boxHeight = "680px";
+const boxWidth = "1152px";
+const boxHeight = "780px";
 
 export default function PreviewPage() {
   return (
@@ -65,13 +67,14 @@ export default function PreviewPage() {
 
         <div className="absolute inset-0 flex items-center justify-center">
           <div
-            // className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
-            className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
+            className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
+            // className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
             style={{ width: boxWidth, height: boxHeight, maxWidth: "100%" }}
           >
             {/* <Buttons variants={variants} /> */}
             {/* <LiquidScrollProgress sections={sections} />; */}
-            <JellyToolbar items={items} />;
+            {/* <JellyToolbar items={items} />; */}
+            <Pagination variants={variants} />;
           </div>
         </div>
       </div>
