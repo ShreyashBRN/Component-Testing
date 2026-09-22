@@ -1,11 +1,22 @@
 import { BackgroundMesh } from "@/components/background-mesh";
 import { Buttons, type VariantEntry } from "@/components/buttons";
+import {
+  LiquidScrollProgress,
+  type LiquidScrollProgressSection,
+} from "@/components/liquid-scroll-progress";
 
 const variants: VariantEntry[] = [
   { variant: "letters", name: "1. Staggered Letter Lift" },
   { variant: "liquid", name: "2. Single Liquid Bubble" },
   { variant: "magnetic", name: "3. Magnetic" },
   { variant: "compression", name: "4. Cursor Compression" },
+];
+
+const sections: LiquidScrollProgressSection[] = [
+  { title: "Introduction" },
+  { title: "Implementation" },
+  { title: "Customization" },
+  { title: "Usage" },
 ];
 
 // // Canvas = the bg box itself
@@ -17,12 +28,12 @@ const variants: VariantEntry[] = [
 // const boxHeight = "600px";
 
 // Canvas = the bg box itself
-const canvasWidth = "700px";
-const canvasHeight = "439px";
+const canvasWidth = "1000px";
+const canvasHeight = "739px";
 
 // Preview box, independent of canvas size
-const boxWidth = "602px";
-const boxHeight = "380px";
+const boxWidth = "952px";
+const boxHeight = "680px";
 
 export default function PreviewPage() {
   return (
@@ -35,11 +46,12 @@ export default function PreviewPage() {
 
         <div className="absolute inset-0 flex items-center justify-center">
           <div
-            // className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
-            className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
+            className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
+            // className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
             style={{ width: boxWidth, height: boxHeight, maxWidth: "100%" }}
           >
-            <Buttons variants={variants} />
+            {/* <Buttons variants={variants} /> */}
+            <LiquidScrollProgress sections={sections} />;
           </div>
         </div>
       </div>
