@@ -1,6 +1,6 @@
 "use client";
 import { BackgroundMesh } from "@/components/background-mesh";
-import { Buttons, type VariantEntry } from "@/components/buttons";
+// import { Buttons, type VariantEntry } from "@/components/buttons";
 import {
   LiquidScrollProgress,
   type LiquidScrollProgressSection,
@@ -15,6 +15,9 @@ import {
       Menu as MenuIcon,
     } from "lucide-react";
     import Pagination, { type PaginationVariant } from "@/components/pagination";
+    // import { Buttons, type VariantEntry } from "@/components/buttons";
+    // import OtpShowcase, { OtpInput } from "@/components/otp-input"
+    import { OtpInput, type OtpVariant } from "@/components/otp-input";
 
 // const variants: VariantEntry[] = [
 //   { variant: "letters", name: "1. Staggered Letter Lift" },
@@ -39,7 +42,24 @@ const items: JellyToolbarItem[] = [
       { label: "Menu", icon: MenuIcon, shortcut: "M" },
     ];
 
-    const variants: PaginationVariant[] = ["pills", "outline", "compact", "input"];
+    // const variants: PaginationVariant[] = ["pills", "outline", "compact", "input"];
+
+//     const variants: VariantEntry[] = [
+//   { variant: "letters", name: "Staggered Letter Lift" },
+//   { variant: "liquid", name: "Single Liquid Bubble" },
+//   { variant: "magnetic", name: "Magnetic" },
+//   { variant: "compression", name: "Cursor Compression" },
+//   // remove or reorder any entry above to change what the grid shows
+// ];
+
+
+const variants: OtpVariant[] = ["classic", "underline", "pill", "filled"];
+
+
+
+
+
+
 // // Canvas = the bg box itself
 // const canvasWidth = "1600px";
 // const canvasHeight = "839px";
@@ -67,14 +87,15 @@ export default function PreviewPage() {
 
         <div className="absolute inset-0 flex items-center justify-center">
           <div
-            className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
-            // className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
+            // className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
+            className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
             style={{ width: boxWidth, height: boxHeight, maxWidth: "100%" }}
           >
             {/* <Buttons variants={variants} /> */}
             {/* <LiquidScrollProgress sections={sections} />; */}
             {/* <JellyToolbar items={items} />; */}
-            <Pagination variants={variants} />;
+            {/* <Pagination variants={variants} />; */}
+            <OtpInput variants={variants} />;
           </div>
         </div>
       </div>
