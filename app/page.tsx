@@ -127,27 +127,57 @@ export default function PreviewPage() {
   // );
 
 return (
+    // <div
+    //   style={{
+    //     position: "relative",
+    //     width: "100%",
+    //     height: "360px",
+    //     // overflow: "hidden",
+    //   }}
+    // >
+    //   <div
+    //     style={{
+    //       position: "absolute",
+    //       top: "232px",
+    //       left: "50%",
+    //       transform: "translateX(-50%)",
+    //       width: "min(100%, 260px)",
+    //       zIndex: 10,
+    //     }}
+    //   >
+    //     <ElasticDropdown placeholder="Project" options={options} />
+    //   </div>
+    // </div>
+    <div
+  style={{
+    position: "relative",
+    width: "100%",
+    minHeight: "100vh",
+    backgroundColor: "#000000",
+  }}
+>
+  <div
+    style={{
+      position: "relative",
+      width: "100%",
+      height: "360px",
+      // overflow: "hidden",
+    }}
+  >
     <div
       style={{
-        position: "relative",
-        width: "100%",
-        height: "360px",
-        // overflow: "hidden",
+        position: "absolute",
+        top: "232px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "min(100%, 260px)",
+        zIndex: 10,
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: "232px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "min(100%, 260px)",
-          zIndex: 10,
-        }}
-      >
-        <ElasticDropdown placeholder="Project" options={options} />
-      </div>
+      <ElasticDropdown placeholder="Project" options={options} />
     </div>
+  </div>
+</div>
   );
 
 }
