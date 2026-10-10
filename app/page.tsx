@@ -38,6 +38,7 @@ import { useState } from "react";
 import { DragDropReorder } from "@/components/drag-drop-reorder";
 import type { ReorderItem } from "@/components/drag-drop-reorder";
 import { Image, Code2, TerminalSquare, CloudUpload, RefreshCw } from "lucide-react";
+import { AnimatedSidebar } from "@/components/flow-sidebar";
 
 // const variants: VariantEntry[] = [
 //   { variant: "letters", name: "1. Staggered Letter Lift" },
@@ -46,12 +47,12 @@ import { Image, Code2, TerminalSquare, CloudUpload, RefreshCw } from "lucide-rea
 //   { variant: "compression", name: "4. Cursor Compression" },
 // ];
 
-const sections: LiquidScrollProgressSection[] = [
-  { title: "Introduction" },
-  { title: "Implementation" },
-  { title: "Customization" },
-  { title: "Usage" },
-];
+// const sections: LiquidScrollProgressSection[] = [
+//   { title: "Introduction" },
+//   { title: "Implementation" },
+//   { title: "Customization" },
+//   { title: "Usage" },
+// ];
 
 const items: JellyToolbarItem[] = [
       { label: "Chat", icon: MessageSquare, shortcut: "C" },
@@ -93,6 +94,15 @@ const initialItems: ReorderItem[] = [
 ];
 
 
+const sections = [
+  { id: "introduction", label: "Introduction" },
+  { id: "history", label: "History" },
+  { id: "overview", label: "Overview" },
+  { id: "architecture", label: "Architecture" },
+  { id: "implementation", label: "Implementation" },
+  { id: "references", label: "References" },
+];
+
 
 
 // // Canvas = the bg box itself
@@ -111,42 +121,44 @@ const canvasHeight = "839px";
 const boxWidth = "1152px";
 const boxHeight = "780px";
 
-// export default function PreviewPage() {
-//   return (
-//     <main className="flex min-h-screen items-center justify-center overflow-auto">
-//       <div
-//         className="relative"
-//         style={{ width: canvasWidth, height: canvasHeight, maxWidth: "100%" }}
-//       >
-//         <BackgroundMesh />
-
-//         <div className="absolute inset-0 flex items-center justify-center">
-//           <div
-//             // className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
-//             className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
-//             style={{ width: boxWidth, height: boxHeight, maxWidth: "100%" }}
-//           >
-//             {/* <Buttons variants={variants} /> */}
-//             {/* <LiquidScrollProgress sections={sections} />; */}
-//             {/* <JellyToolbar items={items} />; */}
-//             {/* <Pagination variants={variants} />; */}
-//             {/* <OtpInput variants={variants} />; */}
-//             {/* <ElasticDropdown placeholder="Project" options={options} /> */}
-//           </div>
-//         </div>
-//       </div>
-//     </main>
-//   );
-
-
-// }
-
-export default function DragDropReorderPreview() {
-  const [items, setItems] = useState<ReorderItem[]>(initialItems);
- 
+export default function PreviewPage() {
   return (
-    <div className="flex w-full min-h-screen items-center justify-center p-4 ">
-  <DragDropReorder items={items} onReorder={setItems} />
-</div>
+    <main className="flex min-h-screen items-center justify-center overflow-auto">
+      <div
+        className="relative"
+        style={{ width: canvasWidth, height: canvasHeight, maxWidth: "100%" }}
+      >
+        <BackgroundMesh />
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div
+            // className="rounded-3xl border border-white/10 bg-black/80 p-8 backdrop-blur-xl flex items-center justify-center"
+            className="rounded-3xl border border-white/10 bg-white p-8 backdrop-blur-xl flex items-center justify-center"
+            style={{ width: boxWidth, height: boxHeight, maxWidth: "100%" }}
+          >
+            {/* <Buttons variants={variants} /> */}
+            {/* <LiquidScrollProgress sections={sections} />; */}
+            {/* <JellyToolbar items={items} />; */}
+            {/* <Pagination variants={variants} />; */}
+            {/* <OtpInput variants={variants} />; */}
+            {/* <ElasticDropdown placeholder="Project" options={options} /> */}
+            <AnimatedSidebar sections={sections} accentColor="#ff5a4f" />;
+
+          </div>
+        </div>
+      </div>
+    </main>
   );
+
+
 }
+
+// export default function DragDropReorderPreview() {
+//   const [items, setItems] = useState<ReorderItem[]>(initialItems);
+ 
+//   return (
+//     <div className="flex w-full min-h-screen items-center justify-center p-4 ">
+//   <DragDropReorder items={items} onReorder={setItems} />
+// </div>
+//   );
+// }
